@@ -1,192 +1,683 @@
-/* Estilos personalizados mínimos para complementar TailwindCSS */
-
-/* Smooth scroll behavior */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* Animaciones para elementos que aparecen al hacer scroll */
 .fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Estilos para el menú responsive en pantallas pequeñas */
-@media (max-width: 640px) {
-    .nav-links {
-        gap: 1rem;
-    }
+nav .nav-link {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  border-radius: 9999px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: inline-block;
 }
 
-/* Estilos del carrusel de candidatos */
+nav .nav-link,
+nav .nav-link:hover,
+nav .nav-link:focus,
+nav .nav-link:active {
+  border-radius: 9999px !important;
+}
+
+nav .nav-link:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 9999px !important;
+  animation: navPulse 2s infinite;
+}
+
+nav .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 1;
+  border-radius: 9999px !important;
+}
+
+nav .nav-link:hover::before {
+  transform: translateX(100%);
+}
+
+nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  z-index: 2;
+}
+
+nav .nav-link:hover::after {
+  width: 80%;
+}
+
+
+@keyframes navPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+
+
+
+#mobile-menu-button {
+  transition: all 0.3s ease;
+  z-index: 9999;
+  position: relative;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#mobile-menu-button:hover {
+  transform: scale(1.1);
+}
+
+
+.hamburger-line {
+  transform-origin: center;
+  pointer-events: none;
+}
+
+
+#mobile-menu-button.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(2px, 2px);
+}
+
+#mobile-menu-button.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+#mobile-menu-button.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(2px, -2px);
+}
+
+
+#mobile-menu {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+
+#mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+.mobile-nav-link {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+  transition: width 0.3s ease;
+}
+
+.mobile-nav-link:hover::before {
+  width: 100%;
+}
+
+.mobile-nav-link i {
+  color: #ffd700;
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-link:hover i {
+  transform: scale(1.2);
+}
+
+
+@media (max-width: 768px) {
+
+  nav .nav-link {}
+
+  nav .nav-links {}
+
+
+  body {
+    padding-top: 4rem;
+  }
+}
+
+
 .carousel-container {
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto; /* Centrar el contenedor */
-    min-height: 720px; /* Altura aumentada para las tarjetas más altas */
-    padding: 20px 0; /* Padding vertical para mejor espaciado */
-    width: calc(100vw - 400px); /* Ancho con más espacio para botones completamente externos */
-    max-width: 1200px; /* Ancho máximo para mantener proporciones */
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  min-height: 720px;
+  padding: 20px 0;
+  width: calc(100vw - 400px);
+  max-width: 1200px;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel-track {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
 }
 
 .carousel-card {
-    flex-shrink: 0;
-    width: 320px;
-    margin: 0 16px;
-    height: 650px; /* Altura aumentada para mostrar las imágenes completas */
+  flex-shrink: 0;
+  width: 320px;
+  margin: 0 16px;
+  height: 650px;
 }
 
 .carousel-card .bg-white {
-    height: 100%; /* Usar toda la altura disponible */
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .carousel-card .p-6 {
-    flex: 1; /* Expandir para usar el espacio disponible */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 330px; /* Altura mínima para el contenido (650px - 320px imagen) */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 330px;
 }
 
-/* Contenedor de imagen con altura fija */
+
 .carousel-card .relative {
-    height: 320px !important; /* Altura aumentada para mostrar las imágenes completas */
-    flex-shrink: 0;
-    overflow: hidden; /* Ocultar partes que se salgan */
+  height: 320px !important;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
-/* Imagen dentro del contenedor */
+
 .carousel-card .relative img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* Mantener proporción y llenar el contenedor */
-    object-position: center !important; /* Centrar la imagen */
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
-/* Área de contenido con distribución uniforme */
+
 .carousel-card .text-gray-600.leading-relaxed {
-    flex: 1;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
-/* Botón siempre en la parte inferior */
+
 .carousel-card button {
-    margin-top: auto;
-    flex-shrink: 0;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
-/* Efecto hover para las tarjetas del carrusel */
+
 .carousel-card:hover .bg-white {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Botones del carrusel */
+
 .carousel-btn {
-    transition: all 0.3s ease;
-    z-index: 10;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .carousel-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-/* Indicadores del carrusel */
+
+/*
+.carousel-prev,
+.carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+}
+*/
+
+
+.absolute.-left-20,
+.absolute.-right-20 {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+button.carousel-btn,
+button.carousel-prev,
+button.carousel-next {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+
+@media (min-width: 640px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .carousel-prev,
+  .carousel-next,
+  .carousel-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+  }
+
+
+  .absolute.-left-20 {
+    left: -80px !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .absolute.-right-20 {
+    right: -80px !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+
+  .carousel-prev,
+  .carousel-next {
+    width: 50px !important;
+    height: 50px !important;
+    background: white !important;
+    border-radius: 50% !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .carousel-btn i {
+    font-size: 20px !important;
+    color: #2563eb !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 900px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .carousel-btn i {
+    font-size: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+
+  .carousel-prev {
+    left: -25px !important;
+  }
+
+  .carousel-next {
+    right: -25px !important;
+  }
+}
+
+
+@media (min-width: 901px) and (max-width: 1024px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .carousel-btn i {
+    font-size: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+
+  .carousel-prev {
+    left: -25px !important;
+  }
+
+  .carousel-next {
+    right: -25px !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+
 .carousel-indicator {
-    transition: all 0.3s ease;
-    cursor: pointer;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .carousel-indicator:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
-/* Truncar texto en las tarjetas */
+
 .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Responsive del carrusel */
+
 @media (max-width: 768px) {
-    .carousel-container {
-        margin: 0 auto;
-        width: calc(100vw - 280px); /* Ancho ajustado para tablet con botones externos */
-        max-width: 900px;
-        min-height: 690px; /* Altura ajustada para tablet */
-    }
-    
-    .carousel-card {
-        width: 280px;
-        margin: 0 12px;
-        height: 630px; /* Altura ajustada para tablet */
-    }
-    
-    .carousel-card .p-6 {
-        min-height: 310px; /* Altura ajustada para tablet (630px - 320px imagen) */
-    }
+  .carousel-container {
+    margin: 0 auto;
+    width: calc(100vw - 280px);
+    max-width: 900px;
+    min-height: 690px;
+  }
+
+  .carousel-card {
+    width: 280px;
+    margin: 0 12px;
+    height: 630px;
+  }
+
+  .carousel-card .p-6 {
+    min-height: 310px;
+  }
+
+
+  .carousel-prev,
+  .carousel-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+
+  .carousel-prev {
+    left: -20px !important;
+  }
+
+  .carousel-next {
+    right: -20px !important;
+  }
+
+
+  .carousel-btn i {
+    font-size: 18px !important;
+    display: block !important;
+    visibility: visible !important;
+  }
 }
 
-@media (max-width: 640px) {
-    .carousel-container {
-        margin: 0 auto;
-        width: calc(100vw - 200px); /* Ancho ajustado para móvil con botones externos */
-        max-width: 600px;
-        min-height: 660px; /* Altura ajustada para móvil */
+@media (max-width: 768px) {
+  .carousel-container {
+    margin: 0 auto;
+    width: calc(100vw - 40px);
+    max-width: 600px;
+    min-height: 660px;
+  }
+
+  .carousel-card {
+    width: 260px;
+    margin: 0 8px;
+    height: 600px;
+  }
+
+  .carousel-card .p-6 {
+    min-height: 280px;
+  }
+
+  .carousel-card .relative {
+    height: 320px !important;
+    overflow: hidden;
+  }
+
+  .carousel-card .relative img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+
+  button.carousel-btn,
+  button.carousel-prev,
+  button.carousel-next,
+  .carousel-prev,
+  .carousel-next,
+  .carousel-btn,
+  [class*="carousel-prev"],
+  [class*="carousel-next"],
+  [class*="carousel-btn"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    left: -9999px !important;
+    right: -9999px !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+
+  .carousel-container {
+    touch-action: pan-x !important;
+    -webkit-overflow-scrolling: touch !important;
+    cursor: grab !important;
+  }
+
+  .carousel-container:active {
+    cursor: grabbing !important;
+  }
+
+  .carousel-track {
+    touch-action: pan-x !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+  }
+
+
+  .carousel-container::after {
+    content: "← Desliza →";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0.8;
+    animation: slideHint 3s ease-in-out infinite;
+  }
+
+  @keyframes slideHint {
+
+    0%,
+    70%,
+    100% {
+      opacity: 0.6;
     }
-    
-    .carousel-card {
-        width: 260px;
-        margin: 0 8px;
-        height: 600px; /* Altura ajustada para móvil */
+
+    35% {
+      opacity: 1;
     }
-    
-    .carousel-card .p-6 {
-        min-height: 280px; /* Altura ajustada para móvil (600px - 320px imagen) */
-    }
-    
-    .carousel-card .relative {
-        height: 320px !important; /* Misma altura de imagen para móvil */
-        overflow: hidden;
-    }
-    
-    .carousel-card .relative img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-    
-    /* Ajustar botones en móvil */
-    .carousel-prev {
-        left: -16px !important;
-    }
-    
-    .carousel-next {
-        right: -16px !important;
-    }
+  }
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  button[class*="carousel-prev"],
+  button[class*="carousel-next"],
+  .carousel-prev,
+  .carousel-next,
+  .carousel-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    background: white !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  button[class*="carousel-prev"],
+  .carousel-prev {
+    left: -80px !important;
+  }
+
+  button[class*="carousel-next"],
+  .carousel-next {
+    right: -80px !important;
+  }
+
+  button[class*="carousel-prev"] i,
+  button[class*="carousel-next"] i,
+  .carousel-btn i {
+    font-size: 20px !important;
+    color: #2563eb !important;
+    display: block !important;
+    visibility: visible !important;
+  }
 }

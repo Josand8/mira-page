@@ -20,26 +20,66 @@
       }
     }
   </script>
-  <script src="js/script.js"></script>
 </head>
 
 <body class="font-sans leading-relaxed text-gray-800 bg-gray-50 pt-20">
   <header class="bg-mira-dark-blue text-white py-4 shadow-lg fixed top-0 left-0 right-0 z-50">
-    <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center flex-wrap">
+    <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center">
       <div class="text-2xl font-bold text-mira-gold">MIRA</div>
-      <ul class="flex list-none gap-8 flex-wrap">
+      
+      <!-- Menú desktop -->
+      <ul class="hidden md:flex list-none gap-2">
         <li><a href="#inicio"
-            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Inicio</a></li>
+            class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+            <span class="relative z-10">Inicio</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+          </a></li>
         <li><a href="#candidatos"
-            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Candidatos</a></li>
+            class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+            <span class="relative z-10">Candidatos</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+          </a></li>
         <li><a href="#propuestas"
-            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Propuestas</a></li>
-        <li><a href="#noticias"
-            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Noticias</a></li>
-        <li><a href="#como-votar" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Cómo
-            votar</a></li>
+            class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+            <span class="relative z-10">Propuestas</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+          </a></li>
+        <li><a href="#como-votar"
+            class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+            <span class="relative z-10">Cómo votar</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+          </a></li>
       </ul>
+
+      <!-- Botón hamburguesa para móvil -->
+      <button id="mobile-menu-button" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none">
+        <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
     </nav>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="md:hidden fixed top-16 left-0 right-0 bg-mira-dark-blue border-t border-mira-gold/20 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out z-40">
+      <ul class="flex flex-col py-4">
+        <li><a href="#inicio"
+            class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+            <i class="fas fa-home mr-3"></i>Inicio
+          </a></li>
+        <li><a href="#candidatos"
+            class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+            <i class="fas fa-users mr-3"></i>Candidatos
+          </a></li>
+        <li><a href="#propuestas"
+            class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+            <i class="fas fa-lightbulb mr-3"></i>Propuestas
+          </a></li>
+        <li><a href="#como-votar"
+            class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3">
+            <i class="fas fa-vote-yea mr-3"></i>Cómo votar
+          </a></li>
+      </ul>
+    </div>
   </header>
 
   <section class="bg-gradient-to-br from-mira-dark-blue/90 to-mira-dark-blue/90 text-white py-16 text-center relative"
@@ -326,10 +366,10 @@
   <section class="py-16 bg-white" id="como-votar">
     <div class="max-w-6xl mx-auto px-5">
       <h2 class="text-center text-4xl md:text-5xl font-bold text-mira-dark-blue mb-8">Vota así</h2>
-      <div class="text-center text-2xl text-red-600 font-bold mb-12">Este 19 de octubre marca <strong>solo</strong> una
+      <div class="text-center text-2xl text-mira-dark-blue font-bold">Este <strong>19 de octubre</strong> marca <strong>solo</strong> una
         X sobre el logo de MIRA</div>
 
-      <div class="text-center my-12 p-8 bg-white rounded-2xl">
+      <div class="text-center mb-12 p-8 bg-white rounded-2xl">
         <h3 class="text-2xl font-semibold mb-4">Busca la casilla 24 con el logo de MIRA</h3>
         <p class="text-lg mb-6"><strong>Marca una X únicamente sobre el logo de MIRA en la casilla 24</strong></p>
         <div class="inline-block p-8 border-4 border-mira-dark-blue rounded-2xl bg-white mx-4">
@@ -390,13 +430,6 @@
     </div>
   </section>
 
-  <section id="noticias" class="py-16 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-5">
-      <h2 class="text-center text-4xl font-bold text-mira-dark-blue mb-8">Últimas Noticias</h2>
-      <p class="text-center text-gray-500 text-lg">No hay elementos para mostrar</p>
-    </div>
-  </section>
-
   <footer class="bg-mira-dark-blue text-white text-center py-8">
     <div class="max-w-6xl mx-auto px-5">
       <div class="text-xl mb-4 text-mira-gold font-semibold">Somos Uno. El Trabajo en Equipo nos Fortalece.</div>
@@ -408,6 +441,8 @@
       </div>
     </div>
   </footer>
+  
+  <script src="js/script.js"></script>
 </body>
 
 </html>

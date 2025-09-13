@@ -1,6 +1,12 @@
-// Smooth scrolling for navigation links with offset for fixed header
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not(#mobile-menu-button):not(#mobile-menu-button *)').forEach(anchor => {
+    const isInsideHamburger = anchor.closest('#mobile-menu-button');
+    if (isInsideHamburger) {
+        console.log('Saltando enlace dentro del botón hamburguesa:', anchor);
+        return;
+    }
+    
     anchor.addEventListener('click', function (e) {
+        console.log('Smooth scroll activado para:', this.getAttribute('href'));
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -15,7 +21,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add animation on scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -30,7 +35,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all candidate cards and proposal cards
 document.querySelectorAll('.carousel-card, .proposal-card, .voting-step').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
@@ -38,7 +42,6 @@ document.querySelectorAll('.carousel-card, .proposal-card, .voting-step').forEac
     observer.observe(card);
 });
 
-// Carrusel de candidatos
 class CandidateCarousel {
     constructor() {
         this.track = document.getElementById('candidateCarousel');
@@ -48,7 +51,7 @@ class CandidateCarousel {
         this.cards = document.querySelectorAll('.carousel-card');
         
         this.currentSlide = 0;
-        this.cardWidth = 320; // w-80 + mx-4 (320px + 32px margin)
+        this.cardWidth = 320;
         this.visibleCards = this.getVisibleCards();
         this.totalSlides = Math.max(0, this.cards.length - this.visibleCards + 1);
         
@@ -59,9 +62,9 @@ class CandidateCarousel {
     
     getVisibleCards() {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= 1024) return 3; // lg: 3 cards
-        if (screenWidth >= 768) return 2;  // md: 2 cards
-        return 1; // sm: 1 card
+        if (screenWidth >= 1024) return 3;
+        if (screenWidth >= 768) return 2;
+        return 1;
     }
     
     init() {
@@ -78,7 +81,6 @@ class CandidateCarousel {
             indicator.addEventListener('click', () => this.goToSlide(index));
         });
         
-        // Touch/swipe support
         let startX = 0;
         let isDragging = false;
         
@@ -99,7 +101,7 @@ class CandidateCarousel {
             const endX = e.changedTouches[0].clientX;
             const diffX = startX - endX;
             
-            if (Math.abs(diffX) > 50) { // Minimum swipe distance
+            if (Math.abs(diffX) > 50) {
                 if (diffX > 0) {
                     this.nextSlide();
                 } else {
@@ -178,7 +180,138 @@ class CandidateCarousel {
     }
 }
 
-// Inicializar el carrusel cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    new CandidateCarousel();
-});
+// ===== FUNCIONALIDAD DEL MENÚ MÓVIL HAMBURGUESA =====
+class MobileMenu {
+    constructor() {
+        console.log('Inicializando MobileMenu...');
+        this.menuButton = document.getElementById('mobile-menu-button');
+        this.mobileMenu = document.getElementById('mobile-menu');
+        this.mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        this.isOpen = false;
+        
+        console.log('menuButton:', this.menuButton);
+        console.log('mobileMenu:', this.mobileMenu);
+        console.log('mobileNavLinks:', this.mobileNavLinks);
+        
+        this.init();
+    }
+    
+    init() {
+        if (!this.menuButton || !this.mobileMenu) {
+            console.error('No se encontraron los elementos del menú móvil');
+            return;
+        }
+        
+        console.log('Agregando event listener al botón hamburguesa');
+        this.menuButton.addEventListener('click', (e) => {
+            console.log('Click en botón hamburguesa detectado');
+            e.preventDefault();
+            this.toggleMenu();
+        });
+        
+        this.mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => this.closeMenu());
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (this.isOpen && !this.menuButton.contains(e.target) && !this.mobileMenu.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isOpen) {
+                this.closeMenu();
+            }
+        });
+        
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && this.isOpen) {
+                this.closeMenu();
+            }
+        });
+    }
+    
+    toggleMenu() {
+        console.log('toggleMenu llamado, isOpen:', this.isOpen);
+        if (this.isOpen) {
+            this.closeMenu();
+        } else {
+            this.openMenu();
+        }
+    }
+    
+    openMenu() {
+        console.log('openMenu llamado');
+        this.isOpen = true;
+        this.menuButton.classList.add('active');
+        this.mobileMenu.classList.add('active');
+        console.log('Clases agregadas - menuButton:', this.menuButton.classList);
+        console.log('Clases agregadas - mobileMenu:', this.mobileMenu.classList);
+        
+        document.body.style.overflow = 'hidden';
+        
+        this.mobileNavLinks.forEach((link, index) => {
+            link.style.opacity = '0';
+            link.style.transform = 'translateX(-20px)';
+            setTimeout(() => {
+                link.style.opacity = '1';
+                link.style.transform = 'translateX(0)';
+                link.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            }, index * 100);
+        });
+    }
+    
+    closeMenu() {
+        this.isOpen = false;
+        this.menuButton.classList.remove('active');
+        this.mobileMenu.classList.remove('active');
+        
+        document.body.style.overflow = '';
+        
+        this.mobileNavLinks.forEach(link => {
+            link.style.opacity = '';
+            link.style.transform = '';
+            link.style.transition = '';
+        });
+    }
+}
+
+console.log('Inicializando aplicación...');
+new CandidateCarousel();
+
+console.log('Buscando elementos del menú...');
+const menuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+
+console.log('menuButton encontrado:', menuButton);
+console.log('mobileMenu encontrado:', mobileMenu);
+
+if (menuButton && mobileMenu) {
+    console.log('Agregando event listener simple...');
+    
+    menuButton.addEventListener('click', function(e) {
+        console.log('¡Click detectado en botón hamburguesa!');
+        console.log('Event target:', e.target);
+        console.log('Current target:', e.currentTarget);
+        
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        
+        if (mobileMenu.classList.contains('active')) {
+            console.log('Cerrando menú...');
+            mobileMenu.classList.remove('active');
+            menuButton.classList.remove('active');
+        } else {
+            console.log('Abriendo menú...');
+            mobileMenu.classList.add('active');
+            menuButton.classList.add('active');
+        }
+        
+        return false;
+    }, true);
+    
+} else {
+    console.error('No se pudieron encontrar los elementos del menú móvil');
+}

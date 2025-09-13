@@ -23,18 +23,64 @@
 <body class="pt-20">
     <!-- Header fijo -->
     <header class="bg-mira-dark-blue text-white py-4 shadow-lg fixed top-0 left-0 right-0 z-50">
-        <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center flex-wrap">
+        <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center">
             <div class="text-2xl font-bold text-mira-gold">
                 <a href="../index.html">MIRA</a>
             </div>
-            <ul class="flex list-none gap-8 flex-wrap">
-                <li><a href="../index.html" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Inicio</a></li>
-                <li><a href="../index.html#candidatos" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Candidatos</a></li>
-                <li><a href="../index.html#propuestas" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Propuestas</a></li>
-                <li><a href="../index.html#noticias" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Noticias</a></li>
-                <li><a href="../index.html#como-votar" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Cómo votar</a></li>
+            
+            <!-- Menú desktop -->
+            <ul class="hidden md:flex list-none gap-2">
+                <li><a href="../index.html"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Inicio</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
+                <li><a href="../index.html#candidatos"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Candidatos</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
+                <li><a href="../index.html#propuestas"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Propuestas</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
+                <li><a href="../index.html#como-votar"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Cómo votar</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
             </ul>
+
+            <!-- Botón hamburguesa para móvil -->
+            <button id="mobile-menu-button" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none">
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+            </button>
         </nav>
+
+        <!-- Menú móvil desplegable -->
+        <div id="mobile-menu" class="md:hidden fixed top-16 left-0 right-0 bg-mira-dark-blue border-t border-mira-gold/20 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out z-40">
+            <ul class="flex flex-col py-4">
+                <li><a href="../index.html"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+                    <i class="fas fa-home mr-3"></i>Inicio
+                </a></li>
+                <li><a href="../index.html#candidatos"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+                    <i class="fas fa-users mr-3"></i>Candidatos
+                </a></li>
+                <li><a href="../index.html#propuestas"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+                    <i class="fas fa-lightbulb mr-3"></i>Propuestas
+                </a></li>
+                <li><a href="../index.html#como-votar"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3">
+                    <i class="fas fa-vote-yea mr-3"></i>Cómo votar
+                </a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Contenido principal -->
