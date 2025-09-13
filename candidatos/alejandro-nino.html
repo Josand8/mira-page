@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro Niño - MIRA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mira-dark-blue': '#012f84',
+                        'mira-gold': '#ffd700',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="pt-20">
+    <!-- Header fijo -->
+    <header class="bg-mira-dark-blue text-white py-4 shadow-lg fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center flex-wrap">
+            <div class="text-2xl font-bold text-mira-gold">
+                <a href="../index.html">MIRA</a>
+            </div>
+            <ul class="flex list-none gap-8 flex-wrap">
+                <li><a href="../index.html" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Inicio</a></li>
+                <li><a href="../index.html#candidatos" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Candidatos</a></li>
+                <li><a href="../index.html#propuestas" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Propuestas</a></li>
+                <li><a href="../index.html#noticias" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Noticias</a></li>
+                <li><a href="../index.html#como-votar" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Cómo votar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="min-h-screen bg-gray-50">
+        <!-- Hero del candidato -->
+        <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+            <div class="max-w-6xl mx-auto px-5 text-center">
+                <div class="mb-8">
+                    <img src="../images/alejandro-nino.jpeg" alt="Alejandro Niño" 
+                         class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-white shadow-2xl">
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Alejandro Niño</h1>
+                <div class="flex justify-center items-center gap-4 mb-6">
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-lg font-semibold">
+                        20 años
+                    </span>
+                    <span class="bg-mira-gold text-mira-dark-blue px-4 py-2 rounded-full text-lg font-semibold">
+                        Estudiante de Derecho
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Información del candidato -->
+        <section class="py-16">
+            <div class="max-w-4xl mx-auto px-5">
+                <div class="bg-white rounded-3xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Sobre Alejandro Niño</h2>
+                    <div class="prose prose-lg text-gray-600 leading-relaxed">
+                        <p class="mb-4">
+                            Estudiante de derecho comprometido con la justicia social y los derechos de los jóvenes. Busco representar a mi generación con integridad y transparencia, trabajando por el respeto de los derechos fundamentales.
+                        </p>
+                        <p class="mb-4">
+                            Mi formación en derecho me ha enseñado la importancia de la justicia, la equidad y el respeto por los derechos humanos. Creo firmemente que todos los jóvenes merecen igualdad de oportunidades y acceso a una educación de calidad.
+                        </p>
+                        <p class="mb-4">
+                            Mi compromiso es trabajar por la defensa de los derechos de los jóvenes de Usaquén, promoviendo políticas que garanticen el acceso a la educación, la salud y el empleo digno, siempre desde una perspectiva de justicia social.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Propuestas específicas -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-5">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Mis Propuestas para Usaquén</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 rounded-2xl p-6">
+                        <div class="text-blue-600 mb-4">
+                            <i class="fas fa-balance-scale text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Defensa de Derechos Juveniles</h3>
+                        <p class="text-gray-600">Crear programas de asesoría legal gratuita para jóvenes y sus familias, garantizando el acceso a la justicia.</p>
+                    </div>
+                    <div class="bg-green-50 rounded-2xl p-6">
+                        <div class="text-green-600 mb-4">
+                            <i class="fas fa-shield-alt text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Seguridad Ciudadana</h3>
+                        <p class="text-gray-600">Implementar programas de prevención de violencia y delincuencia juvenil a través de la educación y el deporte.</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-2xl p-6">
+                        <div class="text-purple-600 mb-4">
+                            <i class="fas fa-handshake text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Mediación Comunitaria</h3>
+                        <p class="text-gray-600">Establecer centros de mediación comunitaria para resolver conflictos de manera pacífica y constructiva.</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-2xl p-6">
+                        <div class="text-orange-600 mb-4">
+                            <i class="fas fa-gavel text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Educación Cívica</h3>
+                        <p class="text-gray-600">Promover programas de educación cívica y derechos ciudadanos para empoderar a los jóvenes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redes sociales -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-5 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">Conecta con Alejandro Niño</h2>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://instagram.com/alejandro.nino" target="_blank" 
+                       class="text-pink-600 hover:text-pink-800 transition-colors">
+                        <i class="fab fa-instagram text-4xl"></i>
+                    </a>
+                    <a href="https://facebook.com/alejandro.nino" target="_blank" 
+                       class="text-blue-600 hover:text-blue-800 transition-colors">
+                        <i class="fab fa-facebook text-4xl"></i>
+                    </a>
+                    <a href="https://twitter.com/alejandro.nino" target="_blank" 
+                       class="text-blue-400 hover:text-blue-600 transition-colors">
+                        <i class="fab fa-twitter text-4xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-600 mt-4">Sígueme en redes sociales para estar al día con mis propuestas</p>
+            </div>
+        </section>
+
+        <!-- Botón de regreso -->
+        <section class="py-8">
+            <div class="max-w-4xl mx-auto px-5 text-center">
+                <a href="../index.html#candidatos" 
+                   class="inline-flex items-center bg-mira-dark-blue text-white px-6 py-3 rounded-full hover:bg-blue-800 transition-colors duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Volver a Candidatos
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-mira-dark-blue text-white py-8">
+        <div class="max-w-6xl mx-auto px-5 text-center">
+            <p>&copy; 2024 MIRA - Movimiento Independiente de Renovación Absoluta</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

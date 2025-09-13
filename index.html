@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos Unidos por Kennedy - Partido MIRA</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mira-dark-blue': '#012f84',
+            'mira-gold': '#ffd700',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="js/script.js"></script>
+</head>
+
+<body class="font-sans leading-relaxed text-gray-800 bg-gray-50 pt-20">
+  <header class="bg-mira-dark-blue text-white py-4 shadow-lg fixed top-0 left-0 right-0 z-50">
+    <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center flex-wrap">
+      <div class="text-2xl font-bold text-mira-gold">MIRA</div>
+      <ul class="flex list-none gap-8 flex-wrap">
+        <li><a href="#inicio"
+            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Inicio</a></li>
+        <li><a href="#candidatos"
+            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Candidatos</a></li>
+        <li><a href="#propuestas"
+            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Propuestas</a></li>
+        <li><a href="#noticias"
+            class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Noticias</a></li>
+        <li><a href="#como-votar" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Cómo
+            votar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="bg-gradient-to-br from-mira-dark-blue/90 to-mira-dark-blue/90 text-white py-16 text-center relative"
+    id="inicio"
+    style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 600&quot;><rect fill=&quot;%23e3f2fd&quot; width=&quot;1200&quot; height=&quot;600&quot;/><circle fill=&quot;%23bbdefb&quot; cx=&quot;200&quot; cy=&quot;150&quot; r=&quot;80&quot;/><circle fill=&quot;%2390caf9&quot; cx=&quot;800&quot; cy=&quot;200&quot; r=&quot;100&quot;/><circle fill=&quot;%2364b5f6&quot; cx=&quot;400&quot; cy=&quot;400&quot; r=&quot;60&quot;/><circle fill=&quot;%2342a5f5&quot; cx=&quot;1000&quot; cy=&quot;350&quot; r=&quot;90&quot;/></svg>'); background-size: cover;">
+    <div class="max-w-6xl mx-auto px-5">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Todos Unidos por Kennedy</h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Candidatos del Partido MIRA al Consejo Local de Juventud de
+        Kennedy</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50" id="candidatos">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="text-center text-4xl md:text-5xl font-bold mb-12 text-mira-dark-blue">Candidatos del Partido MIRA</h2>
+      <p class="text-center mb-8 text-lg text-gray-600">Todos (11)</p>
+
+      <!-- Carrusel de candidatos -->
+      <div class="relative">
+        <!-- Contenedor del carrusel -->
+        <div class="carousel-container overflow-hidden">
+          <div class="carousel-track flex transition-transform duration-300 ease-in-out" id="candidateCarousel">
+            <!-- Tarjeta de candidato 1 -->
+            <div class="carousel-card flex-shrink-0 w-80 mx-4">
+              <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+                <!-- Imagen del candidato -->
+                <div class="relative h-64 bg-gradient-to-br from-blue-600 to-blue-800">
+                  <img src="images/alejandro-oviedo.jpeg" alt="Alejandro Oviedo" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Contenido de la tarjeta -->
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Alejandro Oviedo</h3>
+                  <div class="flex items-center mb-3">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">21 años</span>
+                  </div>
+                  <p class="text-blue-600 font-semibold mb-3">Estudiante de Biología</p>
+                  <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                    Tengo 21 años, me considero alguien tranquilo y sereno, me gusta avanzar en la vida y aceptar los
+                    retos que se me presentan, con la certeza que no...
+                  </p>
+
+                  <!-- Redes sociales -->
+                  <div class="flex justify-center space-x-4 mb-4">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                  </div>
+
+                  <!-- Botón ver perfil -->
+                  <a href="candidatos/alejandro-oviedo.html" class="block w-full text-mira-dark-blue ring-2 ring-mira-dark-blue rounded-full py-2 px-4 hover:bg-mira-dark-blue hover:text-white transition-all duration-300 font-semibold text-center">
+                    <i class="fas fa-eye mr-2"></i>Ver perfil completo
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-card flex-shrink-0 w-80 mx-4">
+              <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+                <!-- Imagen del candidato -->
+                <div class="relative h-64 bg-gradient-to-br from-blue-600 to-blue-800">
+                  <img src="images/lizeth-hinojoza.jpeg" alt="Lizeth Hinojoza" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Contenido de la tarjeta -->
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Lizeth Hinojoza</h3>
+                  <div class="flex items-center mb-3">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">21 años</span>
+                  </div>
+                  <p class="text-blue-600 font-semibold mb-3">Estudiante de Biología</p>
+                  <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                    Tengo 21 años, me considero alguien tranquilo y sereno, me gusta avanzar en la vida y aceptar los
+                    retos que se me presentan, con la certeza que no...
+                  </p>
+
+                  <!-- Redes sociales -->
+                  <div class="flex justify-center space-x-4 mb-4">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                  </div>
+
+                  <!-- Botón ver perfil -->
+                  <a href="candidatos/lizeth-hinojoza.html" class="block w-full text-mira-dark-blue ring-2 ring-mira-dark-blue rounded-full py-2 px-4 hover:bg-mira-dark-blue hover:text-white transition-all duration-300 font-semibold text-center">
+                    <i class="fas fa-eye mr-2"></i>Ver perfil completo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta de candidato 2 -->
+            <div class="carousel-card flex-shrink-0 w-80 mx-4">
+              <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+                <div class="relative h-64 bg-gradient-to-br from-blue-600 to-blue-800">
+                  <img src="images/stiben-menjura.jpeg" alt="Stiben Menjura" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Stiben Menjura</h3>
+                  <div class="flex items-center mb-3">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">22 años</span>
+                  </div>
+                  <p class="text-blue-600 font-semibold mb-3">Judicante en proceso de grado, Estudiante de
+                    Administración Pública</p>
+                  <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                    Me considero una mujer sensible, tranquila y con una fuerte convicción interior. Mi ocupación:
+                    Judicante en proceso de grado, estudiante de...
+                  </p>
+                  <div class="flex justify-center space-x-4 mb-4">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                  </div>
+                  <a href="candidatos/stiben-menjura.html" class="block w-full text-mira-dark-blue ring-2 ring-mira-dark-blue rounded-full py-2 px-4 hover:bg-mira-dark-blue hover:text-white transition-all duration-300 font-semibold text-center">
+                    <i class="fas fa-eye mr-2"></i>Ver perfil completo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Resto de tarjetas del carrusel -->
+            <div class="carousel-card flex-shrink-0 w-80 mx-4">
+              <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+                <div class="relative h-64 bg-gradient-to-br from-blue-600 to-blue-800">
+                  <img src="images/alejandro-nino.jpeg" alt="Alejandro Nino" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Alejandro Nino</h3>
+                  <div class="flex items-center mb-3">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">15 años</span>
+                  </div>
+                  <p class="text-blue-600 font-semibold mb-3">Estudiante de 9° grado - George Washington School</p>
+                  <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                    Soy una persona amigable, solidaria y positiva. Me gusta ayudar a los demás, escuchar y estar
+                    siempre ahí cuando se necesita...
+                  </p>
+                  <div class="flex justify-center space-x-4 mb-4">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                      <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                  </div>
+                  <a href="candidatos/alejandro-nino.html" class="block w-full text-mira-dark-blue ring-2 ring-mira-dark-blue rounded-full py-2 px-4 hover:bg-mira-dark-blue hover:text-white transition-all duration-300 font-semibold text-center">
+                    <i class="fas fa-eye mr-2"></i>Ver perfil completo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agregar más tarjetas aquí... -->
+          </div>
+        </div>
+
+        <!-- Controles del carrusel -->
+        <button
+          class="carousel-btn carousel-prev absolute -left-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-10">
+          <i class="fas fa-chevron-left text-blue-600 text-xl"></i>
+        </button>
+        <button
+          class="carousel-btn carousel-next absolute -right-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-10">
+          <i class="fas fa-chevron-right text-blue-600 text-xl"></i>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="flex justify-center mt-8 space-x-2">
+          <button class="carousel-indicator w-3 h-3 rounded-full bg-blue-600 transition-colors duration-300"
+            data-slide="0"></button>
+          <button
+            class="carousel-indicator w-3 h-3 rounded-full bg-blue-200 hover:bg-blue-400 transition-colors duration-300"
+            data-slide="1"></button>
+          <button
+            class="carousel-indicator w-3 h-3 rounded-full bg-blue-200 hover:bg-blue-400 transition-colors duration-300"
+            data-slide="2"></button>
+          <button
+            class="carousel-indicator w-3 h-3 rounded-full bg-blue-200 hover:bg-blue-400 transition-colors duration-300"
+            data-slide="3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-gray-50 to-blue-50 py-16" id="propuestas">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-mira-dark-blue mb-4">De joven a joven</h2>
+        <p class="text-xl max-w-3xl mx-auto text-gray-600">¡Te contamos nuestras propuestas! Sabemos que estamos en una
+          etapa en la que deseamos trabajar por los jóvenes, que tengamos voz y sea escuchada con el mismo respeto con
+          el que nosotros oímos.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">💡</div>
+          <div class="text-gray-700">Proponer ideas y mover proyectos ante la Alcaldía para que la Política Pública de
+            Juventud sea una realidad en nuestra localidad.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">🙋‍♂️🙋‍♀️</div>
+          <div class="text-gray-700">Abrir más espacios donde los jóvenes podamos opinar, decidir y participar de
+            verdad.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">👂</div>
+          <div class="text-gray-700">Escuchar lo que sentimos y necesitamos los jóvenes, para llevar nuestra voz directo
+            a la administración local.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">🚫✋</div>
+          <div class="text-gray-700">Decirle no a cualquier tipo de discriminación con propuestas que protejan y
+            respeten la diversidad.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">🤝</div>
+          <div class="text-gray-700">Juntarnos con fundaciones, colectivos y asociaciones que promuevan valores y
+            educación para hacer equipo con la Alcaldía.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">📢</div>
+          <div class="text-gray-700">Crear un espacio claro y fácil donde los jóvenes conozcamos toda la oferta pública
+            pensada para nosotros.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">💼</div>
+          <div class="text-gray-700">Promover capacitaciones que nos preparen con las habilidades necesarias para entrar
+            al mundo laboral con fuerza.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">🚀</div>
+          <div class="text-gray-700">Impulsar programas que apoyen a los jóvenes en sus ideas de negocio y
+            emprendimiento.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">🌐</div>
+          <div class="text-gray-700">Facilitar acceso real a internet, tecnología y herramientas de inteligencia
+            artificial para todos los jóvenes.</div>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">🌱</div>
+          <div class="text-gray-700">Organizar actividades y programas donde los jóvenes podamos aportar a nuestras
+            comunidades.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white" id="como-votar">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="text-center text-4xl md:text-5xl font-bold text-mira-dark-blue mb-8">Vota así</h2>
+      <div class="text-center text-2xl text-red-600 font-bold mb-12">Este 19 de octubre marca <strong>solo</strong> una
+        X sobre el logo de MIRA</div>
+
+      <div class="text-center my-12 p-8 bg-white rounded-2xl">
+        <h3 class="text-2xl font-semibold mb-4">Busca la casilla 24 con el logo de MIRA</h3>
+        <p class="text-lg mb-6"><strong>Marca una X únicamente sobre el logo de MIRA en la casilla 24</strong></p>
+        <div class="inline-block p-8 border-4 border-mira-dark-blue rounded-2xl bg-white mx-4">
+          <img src="images/como-votar.webp" alt="Ballot" class="w-full h-full rounded-lg">
+        </div>
+        <div class="mt-6 space-y-2">
+          <div><span class="text-green-600 text-2xl mr-4">✓</span> Casilla 24</div>
+          <div><span class="text-green-600 text-2xl mr-4">✓</span> Logo de MIRA</div>
+          <div><span class="text-green-600 text-2xl mr-4">✓</span> Una sola X</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div class="text-center p-8 bg-gray-50 rounded-2xl border-t-4 border-mira-dark-blue">
+          <div
+            class="bg-mira-dark-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            1</div>
+          <h3 class="text-xl font-semibold mb-3">Lleva tu documento de identidad</h3>
+          <p class="text-gray-600">Cédula de ciudadanía o tarjeta de identidad. Recuerda que debes tener entre 14 años y
+            ser menor de 29 años.</p>
+        </div>
+
+        <div class="text-center p-8 bg-gray-50 rounded-2xl border-t-4 border-mira-dark-blue">
+          <div
+            class="bg-mira-dark-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            2</div>
+          <h3 class="text-xl font-semibold mb-3">Ubica tu puesto de votación</h3>
+          <p class="text-gray-600">Consulta tu puesto de votación en línea antes de salir de casa.</p>
+        </div>
+
+        <div class="text-center p-8 bg-gray-50 rounded-2xl border-t-4 border-mira-dark-blue">
+          <div
+            class="bg-mira-dark-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            3</div>
+          <h3 class="text-xl font-semibold mb-3">Marca una X sobre el logo de MIRA</h3>
+          <p class="text-gray-600">Como se muestra en el tarjetón arriba, marca una X únicamente en la casilla 24.
+            Recuerda llevar tu propio lapicero de tinta negra (que no sea de gel).</p>
+        </div>
+
+        <div class="text-center p-8 bg-gray-50 rounded-2xl border-t-4 border-mira-dark-blue">
+          <div
+            class="bg-mira-dark-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            4</div>
+          <h3 class="text-xl font-semibold mb-3">Deposita tu voto en la urna</h3>
+          <p class="text-gray-600">Si te equivocas en tu voto, pide otro tarjetón y marca una X sobre el logo de MIRA.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 p-8 rounded-2xl text-center">
+        <h3 class="text-mira-dark-blue text-2xl font-semibold mb-4">Información Importante</h3>
+        <div class="space-y-2 text-lg">
+          <p><strong>El voto es secreto.</strong></p>
+          <p><strong>No uses celular dentro del puesto de votación.</strong></p>
+          <p><strong>Recuerda que el certificado electoral te da beneficios.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="noticias" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="text-center text-4xl font-bold text-mira-dark-blue mb-8">Últimas Noticias</h2>
+      <p class="text-center text-gray-500 text-lg">No hay elementos para mostrar</p>
+    </div>
+  </section>
+
+  <footer class="bg-mira-dark-blue text-white text-center py-8">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-xl mb-4 text-mira-gold font-semibold">Somos Uno. El Trabajo en Equipo nos Fortalece.</div>
+      <h3 class="text-2xl font-bold mb-8">¡Honestidad, servicio y valores!</h3>
+      <div class="text-sm space-y-2">
+        <p>© 2025</p>
+        <p>Derechos reservados. Prohibida su distribución.</p>
+        <p class="mt-4">Página para dar a conocer a los candidatos del Partido MIRA en Kennedy.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

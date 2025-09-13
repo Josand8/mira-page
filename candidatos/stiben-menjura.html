@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stiben Menjura - MIRA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mira-dark-blue': '#012f84',
+                        'mira-gold': '#ffd700',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="pt-20">
+    <!-- Header fijo -->
+    <header class="bg-mira-dark-blue text-white py-4 shadow-lg fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center flex-wrap">
+            <div class="text-2xl font-bold text-mira-gold">
+                <a href="../index.html">MIRA</a>
+            </div>
+            <ul class="flex list-none gap-8 flex-wrap">
+                <li><a href="../index.html" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Inicio</a></li>
+                <li><a href="../index.html#candidatos" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Candidatos</a></li>
+                <li><a href="../index.html#propuestas" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Propuestas</a></li>
+                <li><a href="../index.html#noticias" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Noticias</a></li>
+                <li><a href="../index.html#como-votar" class="text-white hover:text-mira-gold transition-colors duration-300 px-2 py-1">Cómo votar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="min-h-screen bg-gray-50">
+        <!-- Hero del candidato -->
+        <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+            <div class="max-w-6xl mx-auto px-5 text-center">
+                <div class="mb-8">
+                    <img src="../images/stiben-menjura.jpeg" alt="Stiben Menjura" 
+                         class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-white shadow-2xl">
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Stiben Menjura</h1>
+                <div class="flex justify-center items-center gap-4 mb-6">
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-lg font-semibold">
+                        23 años
+                    </span>
+                    <span class="bg-mira-gold text-mira-dark-blue px-4 py-2 rounded-full text-lg font-semibold">
+                        Estudiante de Ingeniería
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Información del candidato -->
+        <section class="py-16">
+            <div class="max-w-4xl mx-auto px-5">
+                <div class="bg-white rounded-3xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Sobre Stiben Menjura</h2>
+                    <div class="prose prose-lg text-gray-600 leading-relaxed">
+                        <p class="mb-4">
+                            Como estudiante de ingeniería, busco aplicar soluciones técnicas innovadoras a los problemas de nuestra comunidad. Creo en el potencial de la tecnología para mejorar la calidad de vida de todos los ciudadanos.
+                        </p>
+                        <p class="mb-4">
+                            Mi formación en ingeniería me ha enseñado a pensar de manera sistemática y buscar soluciones eficientes y sostenibles. Creo firmemente que la innovación tecnológica puede transformar positivamente nuestra localidad.
+                        </p>
+                        <p class="mb-4">
+                            Mi compromiso es trabajar por el desarrollo tecnológico de Usaquén, promoviendo la digitalización de servicios públicos, el acceso a tecnología para jóvenes y la implementación de soluciones inteligentes para mejorar la calidad de vida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Propuestas específicas -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-5">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Mis Propuestas para Usaquén</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 rounded-2xl p-6">
+                        <div class="text-blue-600 mb-4">
+                            <i class="fas fa-laptop-code text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Digitalización de Servicios</h3>
+                        <p class="text-gray-600">Implementar plataformas digitales para trámites y servicios públicos, facilitando el acceso desde cualquier dispositivo.</p>
+                    </div>
+                    <div class="bg-green-50 rounded-2xl p-6">
+                        <div class="text-green-600 mb-4">
+                            <i class="fas fa-wifi text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Conectividad Gratuita</h3>
+                        <p class="text-gray-600">Crear zonas de WiFi público en parques, bibliotecas y espacios comunitarios para promover el acceso digital.</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-2xl p-6">
+                        <div class="text-purple-600 mb-4">
+                            <i class="fas fa-code text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Programación para Jóvenes</h3>
+                        <p class="text-gray-600">Desarrollar programas de capacitación en programación y tecnología para jóvenes, preparándolos para el futuro digital.</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-2xl p-6">
+                        <div class="text-orange-600 mb-4">
+                            <i class="fas fa-lightbulb text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Innovación Social</h3>
+                        <p class="text-gray-600">Promover hackathones y concursos de innovación para que los jóvenes desarrollen soluciones a problemas locales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redes sociales -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-5 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">Conecta con Stiben</h2>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://instagram.com/stiben.menjura" target="_blank" 
+                       class="text-pink-600 hover:text-pink-800 transition-colors">
+                        <i class="fab fa-instagram text-4xl"></i>
+                    </a>
+                    <a href="https://facebook.com/stiben.menjura" target="_blank" 
+                       class="text-blue-600 hover:text-blue-800 transition-colors">
+                        <i class="fab fa-facebook text-4xl"></i>
+                    </a>
+                    <a href="https://twitter.com/stiben.menjura" target="_blank" 
+                       class="text-blue-400 hover:text-blue-600 transition-colors">
+                        <i class="fab fa-twitter text-4xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-600 mt-4">Sígueme en redes sociales para estar al día con mis propuestas</p>
+            </div>
+        </section>
+
+        <!-- Botón de regreso -->
+        <section class="py-8">
+            <div class="max-w-4xl mx-auto px-5 text-center">
+                <a href="../index.html#candidatos" 
+                   class="inline-flex items-center bg-mira-dark-blue text-white px-6 py-3 rounded-full hover:bg-blue-800 transition-colors duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Volver a Candidatos
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-mira-dark-blue text-white py-8">
+        <div class="max-w-6xl mx-auto px-5 text-center">
+            <p>&copy; 2024 MIRA - Movimiento Independiente de Renovación Absoluta</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

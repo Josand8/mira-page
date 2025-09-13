@@ -1,0 +1,192 @@
+/* Estilos personalizados mínimos para complementar TailwindCSS */
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animaciones para elementos que aparecen al hacer scroll */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para el menú responsive en pantallas pequeñas */
+@media (max-width: 640px) {
+    .nav-links {
+        gap: 1rem;
+    }
+}
+
+/* Estilos del carrusel de candidatos */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto; /* Centrar el contenedor */
+    min-height: 720px; /* Altura aumentada para las tarjetas más altas */
+    padding: 20px 0; /* Padding vertical para mejor espaciado */
+    width: calc(100vw - 400px); /* Ancho con más espacio para botones completamente externos */
+    max-width: 1200px; /* Ancho máximo para mantener proporciones */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-card {
+    flex-shrink: 0;
+    width: 320px;
+    margin: 0 16px;
+    height: 650px; /* Altura aumentada para mostrar las imágenes completas */
+}
+
+.carousel-card .bg-white {
+    height: 100%; /* Usar toda la altura disponible */
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-card .p-6 {
+    flex: 1; /* Expandir para usar el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 330px; /* Altura mínima para el contenido (650px - 320px imagen) */
+}
+
+/* Contenedor de imagen con altura fija */
+.carousel-card .relative {
+    height: 320px !important; /* Altura aumentada para mostrar las imágenes completas */
+    flex-shrink: 0;
+    overflow: hidden; /* Ocultar partes que se salgan */
+}
+
+/* Imagen dentro del contenedor */
+.carousel-card .relative img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Mantener proporción y llenar el contenedor */
+    object-position: center !important; /* Centrar la imagen */
+}
+
+/* Área de contenido con distribución uniforme */
+.carousel-card .text-gray-600.leading-relaxed {
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Botón siempre en la parte inferior */
+.carousel-card button {
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+/* Efecto hover para las tarjetas del carrusel */
+.carousel-card:hover .bg-white {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Botones del carrusel */
+.carousel-btn {
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Indicadores del carrusel */
+.carousel-indicator {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-indicator:hover {
+    transform: scale(1.2);
+}
+
+/* Truncar texto en las tarjetas */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsive del carrusel */
+@media (max-width: 768px) {
+    .carousel-container {
+        margin: 0 auto;
+        width: calc(100vw - 280px); /* Ancho ajustado para tablet con botones externos */
+        max-width: 900px;
+        min-height: 690px; /* Altura ajustada para tablet */
+    }
+    
+    .carousel-card {
+        width: 280px;
+        margin: 0 12px;
+        height: 630px; /* Altura ajustada para tablet */
+    }
+    
+    .carousel-card .p-6 {
+        min-height: 310px; /* Altura ajustada para tablet (630px - 320px imagen) */
+    }
+}
+
+@media (max-width: 640px) {
+    .carousel-container {
+        margin: 0 auto;
+        width: calc(100vw - 200px); /* Ancho ajustado para móvil con botones externos */
+        max-width: 600px;
+        min-height: 660px; /* Altura ajustada para móvil */
+    }
+    
+    .carousel-card {
+        width: 260px;
+        margin: 0 8px;
+        height: 600px; /* Altura ajustada para móvil */
+    }
+    
+    .carousel-card .p-6 {
+        min-height: 280px; /* Altura ajustada para móvil (600px - 320px imagen) */
+    }
+    
+    .carousel-card .relative {
+        height: 320px !important; /* Misma altura de imagen para móvil */
+        overflow: hidden;
+    }
+    
+    .carousel-card .relative img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+    
+    /* Ajustar botones en móvil */
+    .carousel-prev {
+        left: -16px !important;
+    }
+    
+    .carousel-next {
+        right: -16px !important;
+    }
+}
