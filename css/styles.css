@@ -171,12 +171,6 @@ nav .nav-link:hover::after {
 
 
 @media (max-width: 768px) {
-
-  nav .nav-link {}
-
-  nav .nav-links {}
-
-
   body {
     padding-top: 4rem;
   }
@@ -242,6 +236,7 @@ nav .nav-link:hover::after {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
@@ -489,6 +484,7 @@ button.carousel-next {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -497,7 +493,7 @@ button.carousel-next {
 @media (max-width: 768px) {
   .carousel-container {
     margin: 0 auto;
-    width: calc(100vw - 280px);
+    width: calc(100vw - 40px);
     max-width: 900px;
     min-height: 690px;
   }
@@ -542,7 +538,7 @@ button.carousel-next {
 @media (max-width: 768px) {
   .carousel-container {
     margin: 0 auto;
-    width: calc(100vw - 40px);
+    width: calc(100vw - 20px);
     max-width: 600px;
     min-height: 660px;
   }

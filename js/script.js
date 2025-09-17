@@ -51,7 +51,7 @@ class CandidateCarousel {
         this.cards = document.querySelectorAll('.carousel-card');
         
         this.currentSlide = 0;
-        this.cardWidth = 320;
+        this.cardWidth = 352; // 320px + 32px margin (16px each side)
         this.visibleCards = this.getVisibleCards();
         this.totalSlides = Math.max(0, this.cards.length - this.visibleCards + 1);
         
