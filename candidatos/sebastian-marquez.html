@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sebastián Márquez - MIRA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mira-dark-blue': '#012f84',
+                        'mira-gold': '#ffd700',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="pt-20">
+    <!-- Header fijo -->
+    <header class="bg-mira-dark-blue text-white py-4 shadow-lg fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-6xl mx-auto px-5 flex justify-between items-center">
+            <div class="text-2xl font-bold text-mira-gold">
+                <a href="../index.html">MIRA</a>
+            </div>
+            
+            <!-- Menú desktop -->
+            <ul class="hidden md:flex list-none gap-2">
+                <li><a href="../index.html"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Inicio</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
+                <li><a href="../index.html#candidatos"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Candidatos</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
+                <li><a href="../index.html#propuestas"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Propuestas</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
+                <li><a href="../index.html#como-votar"
+                    class="nav-link text-white hover:text-mira-gold transition-all duration-300 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-10 hover:shadow-md transform hover:-translate-y-0.5 relative overflow-hidden group">
+                    <span class="relative z-10">Cómo votar</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-mira-gold to-yellow-400 opacity-0 rounded-full  group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a></li>
+            </ul>
+
+            <!-- Botón hamburguesa para móvil -->
+            <button id="mobile-menu-button" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none">
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <!-- Menú móvil desplegable -->
+        <div id="mobile-menu" class="md:hidden fixed top-16 left-0 right-0 bg-mira-dark-blue border-t border-mira-gold/20 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out z-40">
+            <ul class="flex flex-col py-4">
+                <li><a href="../index.html"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+                    <i class="fas fa-home mr-3"></i>Inicio
+                </a></li>
+                <li><a href="../index.html#candidatos"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+                    <i class="fas fa-users mr-3"></i>Candidatos
+                </a></li>
+                <li><a href="../index.html#propuestas"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3 border-b border-white/10">
+                    <i class="fas fa-lightbulb mr-3"></i>Propuestas
+                </a></li>
+                <li><a href="../index.html#como-votar"
+                    class="mobile-nav-link block text-white hover:text-mira-gold hover:bg-white/10 transition-all duration-300 px-6 py-3">
+                    <i class="fas fa-vote-yea mr-3"></i>Cómo votar
+                </a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="min-h-screen bg-gray-50">
+        <!-- Hero del candidato -->
+        <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+            <div class="max-w-6xl mx-auto px-5 text-center">
+                <div class="mb-8">
+                    <img src="../images/sebastian-marquez.jpeg" alt="Sebastián Márquez" 
+                         class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-white shadow-2xl">
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Sebastián Márquez</h1>
+                <div class="flex justify-center items-center gap-4 mb-6">
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-lg font-semibold">
+                        23 años
+                    </span>
+                    <span class="bg-mira-gold text-mira-dark-blue px-4 py-2 rounded-full text-lg font-semibold">
+                        Asesor Jurídico
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Información del candidato -->
+        <section class="py-16">
+            <div class="max-w-4xl mx-auto px-5">
+                <div class="bg-white rounded-3xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Sobre Sebastián Márquez</h2>
+                    <div class="prose prose-lg text-gray-600 leading-relaxed">
+                        <p class="mb-4">
+                            Me gustaría representar nuevamente a los jóvenes porque creo en la importancia de darles voz y continuar impulsando iniciativas que mejoren su calidad de vida.
+                        </p>
+                        <p class="mb-4">
+                            Mi experiencia como CONSEJERO LOCAL DE JUVENTUD me ha permitido entender las necesidades y trabajar por ellas, y quiero seguir siendo un puente entre ellos y las decisiones que afectan su futuro.
+                        </p>
+                        <p class="mb-4">
+                            Como Asesor Jurídico, tengo las herramientas necesarias para defender los derechos de los jóvenes y asegurar que sus intereses estén representados en todas las decisiones importantes de la localidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Propuestas específicas -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-5">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Nuestras Propuestas para Kennedy</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">🏛️</div>
+                        <div class="text-gray-700">Proponer y gestionar proyectos ante la Alcaldía Local de Kennedy que garanticen la implementación efectiva de la Política Pública de Juventud en todos los barrios de la localidad.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">🗣️</div>
+                        <div class="text-gray-700">Promover la creación de espacios de participación juvenil donde podamos opinar, decidir y ser escuchados en los temas que afectan nuestro presente y futuro.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">📊</div>
+                        <div class="text-gray-700">Canalizar las necesidades y problemáticas de los jóvenes en cada sector de Kennedy, para presentarlas y gestionarlas ante la administración local con soluciones concretas.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">🤝</div>
+                        <div class="text-gray-700">Impulsar iniciativas que prevengan la discriminación y promuevan la inclusión, asegurando igualdad de oportunidades para la juventud diversa de la localidad.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">🔗</div>
+                        <div class="text-gray-700">Articular acciones con organizaciones sociales y comunitarias que fomenten valores, educación y participación, fortaleciendo el trabajo conjunto con la Alcaldía.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">📱</div>
+                        <div class="text-gray-700">Crear un canal claro y accesible que permita socializar de forma sencilla la oferta pública de programas, beneficios y oportunidades para los jóvenes.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">🎓</div>
+                        <div class="text-gray-700">Gestionar programas de capacitación en competencias técnicas, digitales y bilingüismo, que faciliten la inserción de los jóvenes en el mercado laboral formal.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">💡</div>
+                        <div class="text-gray-700">Promover programas de emprendimiento juvenil que brinden asesoría, recursos y acompañamiento para que los jóvenes desarrollen proyectos productivos sostenibles.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">🤖</div>
+                        <div class="text-gray-700">Impulsar iniciativas que garanticen el acceso de los jóvenes a internet, nuevas tecnologías y formación en inteligencia artificial, reduciendo la brecha digital.</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4">
+                        <div class="text-3xl flex-shrink-0">🎭</div>
+                        <div class="text-gray-700">Fomentar actividades culturales, artísticas y deportivas que fortalezcan la integración juvenil, el buen uso del tiempo libre y el sentido de comunidad en Kennedy.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redes sociales -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-5 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">Conecta con Sebastián</h2>
+                <div class="flex justify-center space-x-6">
+                    <!-- Enlaces de redes sociales se pueden agregar cuando estén disponibles -->
+                </div>
+                <p class="text-gray-600 mt-4">Síguenos en redes sociales para estar al día con nuestras propuestas</p>
+            </div>
+        </section>
+
+        <!-- Botón de regreso -->
+        <section class="py-8">
+            <div class="max-w-4xl mx-auto px-5 text-center">
+                <a href="../index.html#candidatos" 
+                   class="inline-flex items-center bg-mira-dark-blue text-white px-6 py-3 rounded-full hover:bg-blue-800 transition-colors duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Volver a Candidatos
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-mira-dark-blue text-white py-8">
+        <div class="max-w-6xl mx-auto px-5 text-center">
+            <p>&copy; 2024 MIRA - Movimiento Independiente de Renovación Absoluta</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
