@@ -13,35 +13,31 @@ html {
   transform: translateY(0);
 }
 
-nav .nav-link {
+/* Navegación - Estilos base con especificidad mejorada */
+.navbar-nav .nav-link {
   position: relative;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-size: 0.9rem;
   border: 2px solid transparent;
-  border-radius: 9999px !important;
+  border-radius: 9999px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   display: inline-block;
 }
 
-nav .nav-link,
-nav .nav-link:hover,
-nav .nav-link:focus,
-nav .nav-link:active {
-  border-radius: 9999px !important;
-}
-
-nav .nav-link:hover {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active {
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
   backdrop-filter: blur(10px);
-  border-radius: 9999px !important;
+  border-radius: 9999px;
   animation: navPulse 2s infinite;
 }
 
-nav .nav-link::before {
+.navbar-nav .nav-link::before {
   content: '';
   position: absolute;
   top: 0;
@@ -52,7 +48,7 @@ nav .nav-link::before {
   transform: translateX(-100%);
   transition: transform 0.6s ease;
   z-index: 1;
-  border-radius: 9999px !important;
+  border-radius: 9999px;
 }
 
 nav .nav-link:hover::before {
@@ -216,18 +212,18 @@ nav .nav-link:hover::after {
 }
 
 
+/* Carrusel - Contenedor de imagen con especificidad mejorada */
 .carousel-card .relative {
-  height: 320px !important;
+  height: 320px;
   flex-shrink: 0;
   overflow: hidden;
 }
 
-
 .carousel-card .relative img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 
@@ -253,220 +249,102 @@ nav .nav-link:hover::after {
 }
 
 
-.carousel-btn {
-  transition: all 0.3s ease;
+/* Carrusel - Botones base con especificidad mejorada */
+.carousel-container .carousel-btn,
+.carousel-container .carousel-prev,
+.carousel-container .carousel-next,
+.carousel-container .absolute.-left-20,
+.carousel-container .absolute.-right-20 {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
   z-index: 10;
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.carousel-btn:hover {
+.carousel-container .carousel-btn:hover,
+.carousel-container .carousel-prev:hover,
+.carousel-container .carousel-next:hover {
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-btn:disabled {
+.carousel-container .carousel-btn:disabled,
+.carousel-container .carousel-prev:disabled,
+.carousel-container .carousel-next:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-
-/*
-.carousel-prev,
-.carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: absolute !important;
-    z-index: 10 !important;
-    pointer-events: auto !important;
-}
-*/
-
-
-.absolute.-left-20,
-.absolute.-right-20 {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+.carousel-container .carousel-btn i,
+.carousel-container .carousel-prev i,
+.carousel-container .carousel-next i {
+  font-size: 20px;
+  color: #2563eb;
+  display: block;
+  visibility: visible;
 }
 
 
-button.carousel-btn,
-button.carousel-prev,
-button.carousel-next {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: absolute !important;
-  z-index: 10 !important;
-  pointer-events: auto !important;
-}
-
-
+/* Media queries consolidadas - Desktop y tablet */
 @media (min-width: 640px) {
-
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+  .carousel-container .carousel-prev {
+    left: -80px;
   }
-}
-
-@media (min-width: 768px) {
-
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}
-
-@media (min-width: 1024px) {
-
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+  
+  .carousel-container .carousel-next {
+    right: -80px;
   }
 }
 
 
-@media (max-width: 1024px) {
-
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}
-
-
+/* Tablet - Rango medio */
 @media (min-width: 768px) and (max-width: 1024px) {
-
-  .carousel-prev,
-  .carousel-next,
-  .carousel-btn {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: absolute !important;
-    z-index: 10 !important;
-    pointer-events: auto !important;
+  .carousel-container .carousel-prev,
+  .carousel-container .carousel-next {
+    left: -25px;
+    width: 50px;
+    height: 50px;
   }
-
-
-  .absolute.-left-20 {
-    left: -80px !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  .absolute.-right-20 {
-    right: -80px !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-
-  .carousel-prev,
-  .carousel-next {
-    width: 50px !important;
-    height: 50px !important;
-    background: white !important;
-    border-radius: 50% !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .carousel-btn i {
-    font-size: 20px !important;
-    color: #2563eb !important;
-    display: block !important;
-    visibility: visible !important;
+  
+  .carousel-container .carousel-next {
+    left: auto;
+    right: -25px;
   }
 }
 
 
-@media (min-width: 769px) and (max-width: 900px) {
-
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 50px !important;
-    height: 50px !important;
+/* Tablet específico - 769px a 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .carousel-container .carousel-prev {
+    left: -25px;
   }
-
-  .carousel-btn i {
-    font-size: 20px !important;
-    display: block !important;
-    visibility: visible !important;
-  }
-
-
-  .carousel-prev {
-    left: -25px !important;
-  }
-
-  .carousel-next {
-    right: -25px !important;
+  
+  .carousel-container .carousel-next {
+    right: -25px;
   }
 }
 
-
-@media (min-width: 901px) and (max-width: 1024px) {
-
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 50px !important;
-    height: 50px !important;
-  }
-
-  .carousel-btn i {
-    font-size: 20px !important;
-    display: block !important;
-    visibility: visible !important;
-  }
-
-
-  .carousel-prev {
-    left: -25px !important;
-  }
-
-  .carousel-next {
-    right: -25px !important;
-  }
-}
-
+/* Móvil - Ocultar flechas de navegación */
 @media (max-width: 768px) {
-
+  .carousel-container .carousel-prev,
+  .carousel-container .carousel-next,
+  .carousel-btn,
   .carousel-prev,
   .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
@@ -478,6 +356,14 @@ button.carousel-next {
 
 .carousel-indicator:hover {
   transform: scale(1.2);
+}
+
+/* Ocultar 2 indicadores en desktop */
+@media (min-width: 1024px) {
+  .carousel-indicator:nth-child(6),
+  .carousel-indicator:nth-child(7) {
+    display: none;
+  }
 }
 
 
@@ -509,30 +395,7 @@ button.carousel-next {
   }
 
 
-  .carousel-prev,
-  .carousel-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 45px !important;
-    height: 45px !important;
-  }
-
-
-  .carousel-prev {
-    left: -20px !important;
-  }
-
-  .carousel-next {
-    right: -20px !important;
-  }
-
-
-  .carousel-btn i {
-    font-size: 18px !important;
-    display: block !important;
-    visibility: visible !important;
-  }
+  /* Las flechas están ocultas en móvil por la media query anterior */
 }
 
 @media (max-width: 768px) {
@@ -553,56 +416,40 @@ button.carousel-next {
     min-height: 280px;
   }
 
+  /* Imágenes en móvil */
   .carousel-card .relative {
-    height: 320px !important;
+    height: 320px;
     overflow: hidden;
   }
 
   .carousel-card .relative img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
 
-  button.carousel-btn,
-  button.carousel-prev,
-  button.carousel-next,
-  .carousel-prev,
-  .carousel-next,
-  .carousel-btn,
-  [class*="carousel-prev"],
-  [class*="carousel-next"],
-  [class*="carousel-btn"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    position: absolute !important;
-    left: -9999px !important;
-    right: -9999px !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
+  /* Los botones se mantienen visibles en móvil para mejor UX */
 
 
+  /* Mejoras de touch para móvil */
   .carousel-container {
-    touch-action: pan-x !important;
-    -webkit-overflow-scrolling: touch !important;
-    cursor: grab !important;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
   }
 
   .carousel-container:active {
-    cursor: grabbing !important;
+    cursor: grabbing;
   }
 
   .carousel-track {
-    touch-action: pan-x !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
+    touch-action: pan-x;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
 
 
@@ -636,44 +483,15 @@ button.carousel-next {
 
 
 
+/* Tablet específico - 768px a 1024px */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-
-  button[class*="carousel-prev"],
-  button[class*="carousel-next"],
-  .carousel-prev,
-  .carousel-next,
-  .carousel-btn {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: absolute !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
-    background: white !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  .carousel-container .carousel-prev {
+    left: -80px;
+    z-index: 9999;
   }
-
-  button[class*="carousel-prev"],
-  .carousel-prev {
-    left: -80px !important;
-  }
-
-  button[class*="carousel-next"],
-  .carousel-next {
-    right: -80px !important;
-  }
-
-  button[class*="carousel-prev"] i,
-  button[class*="carousel-next"] i,
-  .carousel-btn i {
-    font-size: 20px !important;
-    color: #2563eb !important;
-    display: block !important;
-    visibility: visible !important;
+  
+  .carousel-container .carousel-next {
+    right: -80px;
+    z-index: 9999;
   }
 }
