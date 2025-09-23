@@ -55,6 +55,12 @@ class CandidateCarousel {
         this.visibleCards = this.getVisibleCards();
         this.totalSlides = Math.max(0, this.cards.length - this.visibleCards + 1);
         
+        console.log('Carrusel inicializado:', {
+            totalCards: this.cards.length,
+            visibleCards: this.visibleCards,
+            totalSlides: this.totalSlides
+        });
+        
         this.init();
         this.setupEventListeners();
         this.setupResizeListener();
@@ -79,9 +85,8 @@ class CandidateCarousel {
         
         this.indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
-                // Solo permitir navegación a slides que correspondan a indicadores visibles
-                const isVisible = window.innerWidth < 1024 || index < 5;
-                if (isVisible && index < this.totalSlides) {
+                // Permitir navegación a todos los slides válidos
+                if (index < this.totalSlides) {
                     this.goToSlide(index);
                 }
             });
@@ -123,6 +128,7 @@ class CandidateCarousel {
             this.totalSlides = Math.max(0, this.cards.length - this.visibleCards + 1);
             this.currentSlide = Math.min(this.currentSlide, this.totalSlides - 1);
             this.updateCarousel();
+            this.updateIndicators();
             this.updateButtons();
         });
     }
@@ -136,10 +142,9 @@ class CandidateCarousel {
     
     updateIndicators() {
         this.indicators.forEach((indicator, index) => {
-            // Solo actualizar indicadores visibles (en desktop ocultamos los últimos 2)
-            const isVisible = window.innerWidth < 1024 || index < 5;
-            
-            if (isVisible) {
+            // Mostrar solo los indicadores que corresponden a slides válidos
+            if (index < this.totalSlides) {
+                indicator.style.display = 'block';
                 if (index === this.currentSlide) {
                     indicator.classList.remove('bg-blue-200');
                     indicator.classList.add('bg-blue-600');
@@ -147,6 +152,9 @@ class CandidateCarousel {
                     indicator.classList.remove('bg-blue-600');
                     indicator.classList.add('bg-blue-200');
                 }
+            } else {
+                // Ocultar indicadores que no corresponden a slides válidos
+                indicator.style.display = 'none';
             }
         });
     }
